@@ -11,6 +11,8 @@ router.get('/', function(req, res, next) {
 router.get('/readNameAndRespond', function(req, res, next) {
     res.send("hello");
 });
+
+//now processing post
 router.post('/readNameAndRespond', function(req, res, next) {
     res.send("hello");
 });

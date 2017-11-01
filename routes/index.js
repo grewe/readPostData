@@ -24,7 +24,7 @@ router.get('/readNameAndRespond', function(req, res, next) {
     var params = JSON.stringify(req.params);//if wanted parameters
     var name = req.body.name;  //retrieve the data associated with name
     var value_name = req.body.say;
-    res.send("hello" + value_name);
+    res.send("hello " + value_name);
 });
 //now processing post
 router.post('/readNameAndRespond', function(req, res, next) {
@@ -34,7 +34,7 @@ router.post('/readNameAndRespond', function(req, res, next) {
     var params = JSON.stringify(req.params);//if wanted parameters
     var name = req.body.name;  //retrieve the data associated with name
     var value_name = req.body.say;
-    res.send("hello" + value_name);
+    res.send("hello " + value_name);
 });
 
 module.exports = router;

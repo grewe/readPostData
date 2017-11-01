@@ -7,5 +7,24 @@
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+
+    Form to test GET request and reading the data using URI /readNameAndRespond
+  <br/>
+    <form action="/readNameAndRespond" method="get">
+
+      Name: <input type="text" name="name"> </input>
+      <br/>
+      <input type="submit" value="Go"/>
+    </form>
+<br><br>
+
+    Form to test POST request and reading data using URI  /readNameAndRespond
+    <br/>
+    <form action="/readNameAndRespond" method="post">
+
+      Name: <input type="text" name="name"> </input>
+      <br/>
+      <input type="submit" value="Go"/>
+    </form>
   </body>
 </html>

@@ -5,6 +5,7 @@ var router = express.Router();
 //to process data sent in on request need body-parser module
 var bodyParser = require('body-parser');
 var path = require ('path'); //to work with separtors on any OS including Windows
+var querystring = require('querystring'); //for use in GET Query string of form URI/path?name=value
 
 router.use(bodyParser.json()); // for parsing application/json
 
@@ -16,24 +17,36 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+// GET with  URI  /read/Lynne   which means name=Lynne
+router.get('/read/:name', function(req, res, next) {
+    //expecting data variable called name --retrieve value using body-parser
+    var body = JSON.stringify(req.body);  //if wanted entire body as JSON
+    var params = JSON.stringify(req.params);//if wanted parameters
+    var value_name = req.params.name;  //retrieve the data associated with name
+    res.send("hello " + value_name);
+})
+
 /* the URI /readNameAndRespond */
 
+// GET with URI with querry  /readNameAndRespond?name=Lynne
 router.get('/readNameAndRespond', function(req, res, next) {
     //expecting data variable called name --retrieve value using body-parser
     var body = JSON.stringify(req.body);  //if wanted entire body as JSON
     var params = JSON.stringify(req.params);//if wanted parameters
-    var name = req.body.name;  //retrieve the data associated with name
-    var value_name = req.body.say;
+    var query = req.query;  //if wanted the query
+    var value_name = req.query.name;  //retrieve the data associated with name
     res.send("hello " + value_name);
 });
+
+
+
 //now processing post
 router.post('/readNameAndRespond', function(req, res, next) {
 
     //expecting data variable called name --retrieve value using body-parser
     var body = JSON.stringify(req.body);  //if wanted entire body as JSON
     var params = JSON.stringify(req.params);//if wanted parameters
-    var name = req.body.name;  //retrieve the data associated with name
-    var value_name = req.body.say;
+    var value_name = req.body.name;  //retrieve the data associated with name
     res.send("hello " + value_name);
 });
 

@@ -39,7 +39,7 @@ router.get('/readNameAndRespond', function(req, res, next) {
 });
 
 
-
+//Processing Post to read post data called name
 //now processing post
 router.post('/readNameAndRespond', function(req, res, next) {
 

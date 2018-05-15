@@ -62,6 +62,15 @@ router.post('/storeData', function(req, res, next) {
     res.send("order successful " + value_order);
 });
 
+router.get('/storeData', function(req, res, next) {
+
+    //expecting data variable called name --retrieve value using body-parser
+    var body = JSON.stringify(req.body);  //if wanted entire body as JSON
+    var params = JSON.stringify(req.params);//if wanted parameters
+    var query = req.query;  //if wanted the query
+    var value_order = req.query.order;
+    res.send("order successful " + value_order);
+});
 
 
 

@@ -50,4 +50,19 @@ router.post('/readNameAndRespond', function(req, res, next) {
     res.send("hello now " + value_name);
 });
 
+
+
+//Processing Post to storeData
+router.post('/storeData', function(req, res, next) {
+
+    //expecting data variable called name --retrieve value using body-parser
+    var body = JSON.stringify(req.body);  //if wanted entire body as JSON
+    var params = JSON.stringify(req.params);//if wanted parameters
+    var value_order = req.body.order;  //retrieve the data associated with order
+    res.send("order successful " + value_order);
+});
+
+
+
+
 module.exports = router;
